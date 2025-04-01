@@ -1,0 +1,22 @@
+export const adivinanzas = [
+  { adivinanza: 'Blanca por dentro, verde por fuera. Si quieres que te lo diga, espera.', respuesta: 'pera' },
+  { adivinanza: 'Oro parece, plata no es. Quien no lo adivine, bien tonto es.', respuesta: 'plátano' },
+  { adivinanza: 'Tiene dientes y no muerde, tiene cabeza y no es hombre.', respuesta: 'ajo' },
+  { adivinanza: 'Largo, largo, como una serpiente, la gente lo pisa y no lo siente.', respuesta: 'camino' },
+  { adivinanza: 'Tiene ojos y no puede ver, tiene agua y no la puede beber.', respuesta: 'aguacate' },
+  { adivinanza: 'Vuelo de noche, duermo en el día y nunca verás plumas en ala mía.', respuesta: 'murciélago' },
+  { adivinanza: 'Cien amigas tengo, todas en un agujero, si el que las toca no es su amigo, al punto le hacen llorar.', respuesta: 'cebollas' },
+  { adivinanza: 'Pequeño como un ratón, guarda la casa como un león.', respuesta: 'candado' },
+  { adivinanza: 'En alto vive, en alto mora, en alto teje la tejedora.', respuesta: 'araña' },
+  { adivinanza: 'Dos hermanitos muy igualitos, si uno se cae, el otro queda frito.', respuesta: 'ojos' },
+  { adivinanza: 'Tiene hojas pero no es árbol, tiene lomo pero no es animal.', respuesta: 'libro' },
+  { adivinanza: 'Redonda, redonda, barril sin fondo.', respuesta: 'anillo' },
+  { adivinanza: 'Tengo alas y pico, pero no soy un ave. A veces repito lo que tú hables.', respuesta: 'loro' },
+  { adivinanza: 'Tiene patas pero no anda, tiene respaldo y no descansa.', respuesta: 'silla' },
+  { adivinanza: 'En casa me llaman tele, en la escuela monitor y en la oficina pantalla. ¿Quién soy?', respuesta: 'pantalla' },
+  { adivinanza: 'Tengo cabeza y no soy humano, tengo números y no soy teléfono.', respuesta: 'reloj' },
+  { adivinanza: 'Un animal muy elegante que siempre camina con paso galante.', respuesta: 'caballo' },
+  { adivinanza: 'Siempre que me necesitas me abres, cuando ya no me necesitas me cierras.', respuesta: 'paraguas' },
+  { adivinanza: 'Vuelo sin alas, lloro sin ojos, si quieres que te lo diga, espera un poco.', respuesta: 'nube' },
+  { adivinanza: 'Cuatro patas tiene y no puede andar, aunque le pongan herraduras no puede trotar.', respuesta: 'mesa' }
+]
