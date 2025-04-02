@@ -1,0 +1,22 @@
+export const riddles = [
+  { riddle: 'Blanca por dentro, verde por fuera. Si quieres que te lo diga, espera.', answer: 'pera' },
+  { riddle: 'Oro parece, plata no es. Quien no lo adivine, bien tonto es.', answer: 'plátano' },
+  { riddle: 'Tiene dientes y no muerde, tiene cabeza y no es hombre.', answer: 'ajo' },
+  { riddle: 'Largo, largo, como una serpiente, la gente lo pisa y no lo siente.', answer: 'camino' },
+  { riddle: 'Tiene ojos y no puede ver, tiene agua y no la puede beber.', answer: 'aguacate' },
+  { riddle: 'Vuelo de noche, duermo en el día y nunca verás plumas en ala mía.', answer: 'murciélago' },
+  { riddle: 'Cien amigas tengo, todas en un agujero, si el que las toca no es su amigo, al punto le hacen llorar.', answer: 'cebollas' },
+  { riddle: 'Pequeño como un ratón, guarda la casa como un león.', answer: 'candado' },
+  { riddle: 'En alto vive, en alto mora, en alto teje la tejedora.', answer: 'araña' },
+  { riddle: 'Dos hermanitos muy igualitos, si uno se cae, el otro queda frito.', answer: 'ojos' },
+  { riddle: 'Tiene hojas pero no es árbol, tiene lomo pero no es animal.', answer: 'libro' },
+  { riddle: 'Redonda, redonda, barril sin fondo.', answer: 'anillo' },
+  { riddle: 'Tengo alas y pico, pero no soy un ave. A veces repito lo que tú hables.', answer: 'loro' },
+  { riddle: 'Tiene patas pero no anda, tiene respaldo y no descansa.', answer: 'silla' },
+  { riddle: 'En casa me llaman tele, en la escuela monitor y en la oficina pantalla. ¿Quién soy?', answer: 'pantalla' },
+  { riddle: 'Tengo cabeza y no soy humano, tengo números y no soy teléfono.', answer: 'reloj' },
+  { riddle: 'Un animal muy elegante que siempre camina con paso galante.', answer: 'caballo' },
+  { riddle: 'Siempre que me necesitas me abres, cuando ya no me necesitas me cierras.', answer: 'paraguas' },
+  { riddle: 'Vuelo sin alas, lloro sin ojos, si quieres que te lo diga, espera un poco.', answer: 'nube' },
+  { riddle: 'Cuatro patas tiene y no puede andar, aunque le pongan herraduras no puede trotar.', answer: 'mesa' }
+]
