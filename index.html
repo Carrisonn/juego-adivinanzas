@@ -6,17 +6,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="Content-Type" content="text/html">
   <meta name="description" content="Juegos de Adivinanzas">
-  <link rel="icon" href="" type="">
+  <link rel="icon" href="src/icons/web-logo.svg" type="image/svg+xml">
   <title>Juego de Adivinanzas - Carrison</title>
   <link rel="preload" href="src/css/normalize.css" as="style" />
   <link rel="stylesheet" href="src/css/normalize.css" />
   <link rel="preload" href="src/css/styles.css" as="style" />
   <link rel="stylesheet" href="src/css/styles.css" />
+  <script type="module" src="src/js/main.js"></script>
 </head>
 
 <body>
-  <main></main>
-  <script type="module" src="src/main.js"></script>
+  <main>
+    <div class="container">
+      <h1>Juego de Adivinanzas</h1>
+
+      <div class="container-game">
+        <p class="riddle"></p>
+        <input type="text" placeholder="Respuesta">
+        <button>Comprobar</button>
+      </div>
+    </div> <!-- conatiner -->
+  </main>
 </body>
 
 </html>
