@@ -17,6 +17,16 @@ body {
   font-size: 1.6rem;
 }
 
+.notification {
+  background-color: #e64444;
+  color: #fff;
+  padding: 1rem;
+  border-radius: .5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+/** Styles **/
 .container {
   width: min(90%, 120rem);
   margin: 0 auto;
@@ -78,6 +88,13 @@ body {
   font-weight: 700;
   padding: 1rem;
   border-radius: .5rem;
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 }
 
 #input-user-answer {
