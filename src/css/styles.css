@@ -48,3 +48,34 @@ body {
   margin: 0;
   font-size: 2rem;
 }
+
+.user-stats {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.p-user-lives {
+  background-color: #8fec8f;
+  color: #0c7a0c;
+  font-weight: 700;
+  padding: 1rem;
+  border-radius: .5rem;
+}
+
+.p-user-score {
+  background-color: #f3cc83;
+  color: #664c1b;
+  font-weight: 700;
+  padding: 1rem;
+  border-radius: .5rem;
+}
+
+.riddle {
+  background-color: #b981f0;
+  color: #481f72;
+  font-weight: 700;
+  padding: 1rem;
+  border-radius: .5rem;
+}
