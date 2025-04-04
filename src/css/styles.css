@@ -26,6 +26,17 @@ body {
   text-align: center;
 }
 
+.btn {
+  background-color: #52b3eb;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+  padding: 1rem;
+  border-radius: .5rem;
+  cursor: pointer;
+}
+
 /** Styles **/
 .container {
   width: min(90%, 120rem);
@@ -107,13 +118,27 @@ body {
   outline: none;
 }
 
-#btn-check-answer {
-  background-color: #52b3eb;
-  border: none;
-  color: #fff;
-  font-size: 2rem;
-  font-weight: 700;
-  padding: 1rem;
-  border-radius: .5rem;
-  cursor: pointer;
+.btn-check-answer:hover {
+  background-color: #3ba9e9;
+}
+
+/** Game finished **/
+.game-finished-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.game-finished-container h1 {
+  margin: 0;
+  color: #000;
+}
+
+.stats-finished {
+  justify-content: space-around;
+}
+
+.btn-restart:hover {
+  background-color: #3ba9e9;
 }
