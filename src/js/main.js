@@ -4,7 +4,7 @@ import { $userLifes, $userScore, $riddle, $userInput, $containerGame, $form, use
 window.addEventListener('load', () => $form.reset());
 
 document.addEventListener("DOMContentLoaded", () => {
-  showUserStatsAndRiddle();
+  showUserStatsAndRiddle(); // render the initial state
   $userInput.addEventListener('input', readValue);
   $form.addEventListener('submit', checkAnswer);
 });
@@ -13,27 +13,28 @@ document.addEventListener("DOMContentLoaded", () => {
 // States
 let userLives = 5;
 let userScore = 0;
-let positionRiddle = 0; // position of the riddle in the array
+let positionRiddle = 19; // position of the riddle object in the array
 
 
 // Functions
-function showUserStatsAndRiddle() {
+function showUserStatsAndRiddle() { // render the current state in the UI
   $userLifes.textContent = userLives;
   $userScore.textContent = userScore;
   $riddle.textContent = riddles[positionRiddle].riddle;
 }
 
-function readValue(event) {
+function readValue(event) { // pass the value of the input field to the userAnswerObj(constants.js)
   userAnswerObj.userAnswer = event.target.value.trim().toLowerCase();
 }
 
-function checkAnswer(event) {
+function checkAnswer(event) { // check the user answer and update the state
   event.preventDefault();
 
   const { userAnswer } = userAnswerObj;
   if (userAnswer === '') return showNotification('El campo no puede estar vacío');
 
   if (userAnswer !== riddles[positionRiddle].answer) {
+    if (userLives === 0) return gameOver();
     userLives--;
     showNotification('Respuesta Incorrecta');
     showUserStatsAndRiddle();
@@ -43,7 +44,7 @@ function checkAnswer(event) {
   }
 
   if (userAnswer === riddles[positionRiddle].answer) {
-    if (positionRiddle + 1 === riddles.length) return gameFinished();
+    if (positionRiddle + 1 === riddles.length) return gameCompleted();
     userScore += 5;
     positionRiddle++;
     showUserStatsAndRiddle();
@@ -52,11 +53,25 @@ function checkAnswer(event) {
   }
 }
 
-function gameFinished() {
+function gameOver() { // render the game over interface
+  $containerGame.innerHTML = `
+    <div class="game-finished-container">
+      <h1>¡Game Over!</h1>
+      <p>Has perdido, a continuación se te muestran tus estadísticas</p>
+      <div class="user-stats stats-finished">
+        <p class="p-user-score">Puntos Totales: ${userScore}</p>
+        <p class="p-user-lives">Vidas Restantes: ${userLives}</p>
+      </div>
+      <button class="btn btn-restart" onclick="window.location.reload()">Volver a intentarlo</button>
+    </div>
+  `;
+}
+
+function gameCompleted() { // render the game completed interface
   userScore += 5;
   $containerGame.innerHTML = `
     <div class="game-finished-container">
-      <h1 class="win-title">¡Felicidades!</h1>
+      <h1>¡Felicidades!</h1>
       <p>Has adivinado todas las respuestas, a continuación se te muestran tus estadísticas</p>
       <div class="user-stats stats-finished">
         <p class="p-user-score">Puntos Totales: ${userScore}</p>
@@ -67,9 +82,8 @@ function gameFinished() {
   `;
 }
 
-function showNotification(message) {
+function showNotification(message) { // show a notification in the UI to provide feedback
   const notification = document.querySelector('.notification');
-
   if (!notification) {
     const notification = document.createElement('p');
     notification.classList.add('notification');
