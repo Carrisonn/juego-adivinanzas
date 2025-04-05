@@ -181,3 +181,14 @@ footer a:hover {
   transform: translateY(-6px);
   text-decoration: none;
 }
+
+@media screen and (min-width: 768px) {
+  .container-game {
+    width: min(70%, 120rem);
+  }
+
+  .stats-finished {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
