@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // States
 let userLives = 5;
 let userScore = 0;
-let positionRiddle = 19; // position of the riddle object in the array
+let positionRiddle = 0; // position of the riddle object in the array
 
 
 // Functions
