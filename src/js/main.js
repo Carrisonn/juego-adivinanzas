@@ -27,7 +27,7 @@ function readValue(event) { // pass the value of the input field to the userAnsw
   userAnswerObj.userAnswer = event.target.value.trim().toLowerCase();
 }
 
-function checkAnswer(event) { // check the user answer and update the state
+function checkAnswer(event) { // check the user answer
   event.preventDefault();
 
   const { userAnswer } = userAnswerObj;
@@ -35,22 +35,29 @@ function checkAnswer(event) { // check the user answer and update the state
 
   if (userAnswer !== riddles[positionRiddle].answer) {
     if (userLives === 0) return gameOver();
-    userLives--;
-    showNotification('Respuesta Incorrecta');
-    showUserStatsAndRiddle();
-    userAnswerObj.userAnswer = '';
-    $form.reset();
-    return;
+    return userIncorrectAnswer();
   }
 
   if (userAnswer === riddles[positionRiddle].answer) {
     if (positionRiddle + 1 === riddles.length) return gameCompleted();
-    userScore += 5;
-    positionRiddle++;
-    showUserStatsAndRiddle();
-    userAnswerObj.userAnswer = '';
-    $form.reset();
+    return userCorrectAnswer();
   }
+}
+
+function userCorrectAnswer() { // update the states and call the render function
+  userScore += 5;
+  positionRiddle++;
+  showUserStatsAndRiddle();
+  userAnswerObj.userAnswer = '';
+  $form.reset();
+}
+
+function userIncorrectAnswer() { // update the states and call the render function
+  userLives--;
+  showNotification('Respuesta Incorrecta');
+  showUserStatsAndRiddle();
+  userAnswerObj.userAnswer = '';
+  $form.reset();
 }
 
 function gameOver() { // render the game over interface
