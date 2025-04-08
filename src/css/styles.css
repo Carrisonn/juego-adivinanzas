@@ -73,16 +73,29 @@ body {
   font-size: 2rem;
 }
 
-.user-stats {
+.user-stats-container {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+}
+
+.user-lives-tries {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .p-user-lives {
   background-color: #8fec8f;
   color: #0c7a0c;
+  font-weight: 700;
+  padding: 1rem;
+  border-radius: .5rem;
+}
+
+.p-user-tries {
+  background-color: #ec8c8c;
+  color: #6d2828;
   font-weight: 700;
   padding: 1rem;
   border-radius: .5rem;
@@ -190,5 +203,9 @@ footer a:hover {
   .stats-finished {
     flex-direction: row;
     justify-content: space-around;
+  }
+
+  .user-lives-tries {
+    flex-direction: row;
   }
 }
