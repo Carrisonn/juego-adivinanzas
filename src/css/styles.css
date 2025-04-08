@@ -144,7 +144,6 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  width: 70%;
 }
 
 .game-finished-container h1 {
@@ -153,6 +152,7 @@ body {
 }
 
 .stats-finished {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
