@@ -1,5 +1,5 @@
 import { riddles } from "./riddles.js";
-import { $userLifes, $userScore, $riddle, $userInput, $containerGame, $form, userAnswerObj } from "./constants.js";
+import { $userLifes, $userScore, $userTries, $riddle, $userInput, $containerGame, $form, userAnswerObj } from "./constants.js";
 
 window.addEventListener('load', () => $form.reset());
 
@@ -13,12 +13,14 @@ document.addEventListener("DOMContentLoaded", () => {
 // States
 let userLives = 5;
 let userScore = 0;
+let userTries = 3;
 let positionRiddle = 0; // position of the riddle object in the array
 
 
 // Functions
 function showUserStatsAndRiddle() { // render the current state in the UI
   $userLifes.textContent = userLives;
+  $userTries.textContent = userTries;
   $userScore.textContent = userScore;
   $riddle.textContent = riddles[positionRiddle].riddle;
 }
@@ -47,14 +49,25 @@ function checkAnswer(event) { // check the user answer
 function userCorrectAnswer() { // update the states and call the render function
   userScore += 5;
   positionRiddle++;
+  userTries = 3;
   showUserStatsAndRiddle();
   userAnswerObj.userAnswer = '';
   $form.reset();
 }
 
-function userIncorrectAnswer() { // update the states and call the render function
-  userLives--;
+function userIncorrectAnswer() {  // check the number of tries 
+  if (userTries === 1) return nextRiddle();
+  userTries--;
   showNotification('Respuesta Incorrecta');
+  showUserStatsAndRiddle();
+  userAnswerObj.userAnswer = '';
+  $form.reset();
+}
+
+function nextRiddle() { // update the states and call the render function
+  userLives--;
+  positionRiddle++;
+  userTries = 3;
   showUserStatsAndRiddle();
   userAnswerObj.userAnswer = '';
   $form.reset();
