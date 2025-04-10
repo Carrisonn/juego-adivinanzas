@@ -1,10 +1,11 @@
 import { riddles } from "./riddles.js";
-import { $userLifes, $userScore, $userTries, $riddle, $userInput, $containerGame, $form, userAnswerObj } from "./constants.js";
+import { $userLifes, $userScore, $userTries, $riddle, $userInput, $containerGame, $form, $btnTutorial, userAnswerObj } from "./constants.js";
 
 window.addEventListener('load', () => $form.reset());
 
 document.addEventListener("DOMContentLoaded", () => {
   renderStatsAndRiddle(); // render the initial state
+  $btnTutorial.addEventListener('click', renderTutorialSection);
   $userInput.addEventListener('input', readValue);
   $form.addEventListener('submit', checkAnswer);
 });
@@ -100,14 +101,33 @@ function gameCompleted() {
   `;
 }
 
+// render the tutorial section in the UI
+function renderTutorialSection() {
+  const existTutorialSection = document.querySelector('.tutorial-section');
+  if (existTutorialSection) return;
+
+  const $tutorialSection = document.createElement('div');
+  $tutorialSection.classList.add('tutorial-section');
+  $tutorialSection.innerHTML = `
+    <p>
+      Tienes <span>3 intentos</span> por cada adivinanza y <span>5 vidas</span> en total.
+      Por cada respuesta <span class="tutorial-correct">correcta</span> obtendrás 5 puntos. Si tu respuesta
+      es <span class="tutorial-incorrect">incorrecta</span>, se te restará un intento. Cuando te quedes sin 
+      intentos, saltarás a la siguiente adivinanza para continuar tu progreso pero a cambio se te restará una vida.
+      Si te quedas sin vidas, habrás perdido. ¡Cuidado con las tildes!
+    </p>
+  `;
+  $containerGame.appendChild($tutorialSection);
+}
+
 // show a notification in the UI to provide feedback
 function showNotification(message) {
-  const notification = document.querySelector('.notification');
-  if (!notification) {
-    const notification = document.createElement('p');
-    notification.classList.add('notification');
-    notification.textContent = message;
-    $containerGame.appendChild(notification);
-    setTimeout(() => notification.remove(), 3000);
-  }
+  const existNotification = document.querySelector('.notification');
+  if (existNotification) return;
+
+  const notification = document.createElement('p');
+  notification.classList.add('notification');
+  notification.textContent = message;
+  $form.appendChild(notification);
+  setTimeout(() => notification.remove(), 3000);
 }
