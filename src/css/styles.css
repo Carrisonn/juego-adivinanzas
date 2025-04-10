@@ -1,4 +1,8 @@
 /** Global styles **/
+:root {
+  --shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.70);
+}
+
 html {
   box-sizing: border-box;
   font-size: 62.5%;
@@ -27,6 +31,7 @@ body {
   border-radius: .5rem;
   font-weight: 700;
   text-align: center;
+  box-shadow: var(--shadow);
 }
 
 .btn {
@@ -38,6 +43,13 @@ body {
   padding: 1rem;
   border-radius: .5rem;
   cursor: pointer;
+  transition: transform .3s;
+  box-shadow: var(--shadow);
+}
+
+.btn:hover {
+  background-color: #3ba9e9;
+  transform: scale(1.1);
 }
 
 /** Styles **/
@@ -66,6 +78,7 @@ body {
   padding: 2rem;
   border-radius: 1rem;
   border: 1px solid #000;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.70);
 }
 
 .container-game p {
@@ -91,6 +104,7 @@ body {
   font-weight: 700;
   padding: 1rem;
   border-radius: .5rem;
+  box-shadow: var(--shadow);
 }
 
 .p-user-tries {
@@ -99,6 +113,7 @@ body {
   font-weight: 700;
   padding: 1rem;
   border-radius: .5rem;
+  box-shadow: var(--shadow);
 }
 
 .p-user-score {
@@ -107,6 +122,7 @@ body {
   font-weight: 700;
   padding: 1rem;
   border-radius: .5rem;
+  box-shadow: var(--shadow);
 }
 
 .riddle {
@@ -115,6 +131,7 @@ body {
   font-weight: 700;
   padding: 1rem;
   border-radius: .5rem;
+  box-shadow: var(--shadow);
 }
 
 #form {
@@ -125,17 +142,33 @@ body {
 }
 
 #input-user-answer {
-  border: none;
-  border-bottom: 1px solid #000;
+  border: 1px solid grey;
+  border-radius: .5rem;
   padding: 1rem;
+  box-shadow: var(--shadow);
 }
 
 #input-user-answer:focus {
   outline: none;
 }
 
-.btn-check-answer:hover {
-  background-color: #3ba9e9;
+/** Tutorial Section **/
+.tutorial-section {
+  width: 100%;
+}
+
+.tutorial-section span {
+  font-weight: 700;
+}
+
+.tutorial-correct {
+  font-weight: 700;
+  color: #12a112;
+}
+
+.tutorial-incorrect {
+  font-weight: 700;
+  color: #d92c2c;
 }
 
 /** Game finished **/
@@ -191,7 +224,7 @@ footer a {
 }
 
 footer a:hover {
-  transform: translateY(-6px);
+  transform: scale(1.1);
   text-decoration: none;
 }
 
