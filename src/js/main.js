@@ -111,7 +111,7 @@ function renderTutorialSection() {
   $tutorialSection.setHTMLUnsafe(`
     <p>
       Tienes <span>3 intentos</span> por cada adivinanza y <span>5 vidas</span> en total.
-      Por cada respuesta <span class="tutorial-correct">correcta</span> obtendrás 5 puntos. Si tu respuesta
+      Por cada respuesta <span class="tutorial-correct">correcta</span> obtendrás 10 puntos. Si tu respuesta
       es <span class="tutorial-incorrect">incorrecta</span>, se te restará un intento. Cuando te quedes sin 
       intentos, saltarás a la siguiente adivinanza para continuar tu progreso pero a cambio se te restará una vida.
       Si te quedas sin vidas, habrás perdido. ¡Cuidado con las tildes!
