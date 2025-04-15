@@ -1,14 +1,5 @@
-import { riddlesSet1, riddlesSet2, riddlesSet3 } from "./riddles.js";
+import { riddlesSet1, riddlesSet2, riddlesSet3, riddlesSet4 } from "./riddles.js";
 import { $userLifes, $userScore, $userTries, $riddle, $userInput, $containerGame, $form, $btnTutorial, userAnswerObj } from "./constants.js";
-
-window.addEventListener('load', () => $form.reset());
-
-document.addEventListener("DOMContentLoaded", () => {
-  renderStatsAndRiddle(); // render the initial state
-  $btnTutorial.addEventListener('click', renderTutorialSection);
-  $userInput.addEventListener('input', readValue);
-  $form.addEventListener('submit', checkAnswer);
-});
 
 
 // States
@@ -16,13 +7,13 @@ const riddleSet = randomRiddleSet()
 let userLives = 5;
 let userScore = 0;
 let userTries = 3;
-let positionRiddle = 0; // determines the position of the riddle object in the current array(randomly generated)
+let positionRiddle = 0; // determines the position of the riddle object in the current array(array of riddle objects are randomly selected)
 
 
-// Function
+// Functions
 // generates a random number to return a random riddle set
-export function randomRiddleSet() {
-  const arrayOfRiddleSets = [riddlesSet1, riddlesSet2, riddlesSet3];
+function randomRiddleSet() {
+  const arrayOfRiddleSets = [riddlesSet1, riddlesSet2, riddlesSet3, riddlesSet4];
   const randomPosition = Math.floor(Math.random() * arrayOfRiddleSets.length);
   const randomRiddleSet = arrayOfRiddleSets[randomPosition];
   return randomRiddleSet
@@ -55,7 +46,7 @@ function checkAnswer(event) {
 
 // increment the score, check the position of the actual riddle in the array, otherwise update the states and call the render function
 function userCorrectAnswer() {
-  userScore += 5;
+  userScore += 10;
   if (positionRiddle + 1 === riddleSet.length) return gameCompleted();
   userTries = 3;
   positionRiddle++;
@@ -82,7 +73,7 @@ function userHasNoTries() {
 
 // render the game over interface
 function gameOver() {
-  $containerGame.innerHTML = `
+  $containerGame.setHTMLUnsafe(`
     <div class="game-finished-container">
       <h1>¡Game Over!</h1>
       <p>Has perdido, a continuación se te muestran tus estadísticas</p>
@@ -92,12 +83,12 @@ function gameOver() {
       </div>
       <button class="btn btn-restart" onclick="window.location.reload()">Volver a jugar</button>
     </div>
-  `;
+  `);
 }
 
 // render the game completed interface
 function gameCompleted() {
-  $containerGame.innerHTML = `
+  $containerGame.setHTMLUnsafe(`
     <div class="game-finished-container">
       <h1>¡Felicidades!</h1>
       <p>Has llegado al final del juego, a continuación se te muestran tus estadísticas</p>
@@ -107,7 +98,7 @@ function gameCompleted() {
       </div>
       <button class="btn btn-restart" onclick="window.location.reload()">Volver a jugar</button>
     </div>
-  `;
+  `);
 }
 
 // render the tutorial section in the UI
@@ -117,7 +108,7 @@ function renderTutorialSection() {
 
   const $tutorialSection = document.createElement('div');
   $tutorialSection.classList.add('tutorial-section');
-  $tutorialSection.innerHTML = `
+  $tutorialSection.setHTMLUnsafe(`
     <p>
       Tienes <span>3 intentos</span> por cada adivinanza y <span>5 vidas</span> en total.
       Por cada respuesta <span class="tutorial-correct">correcta</span> obtendrás 5 puntos. Si tu respuesta
@@ -125,7 +116,7 @@ function renderTutorialSection() {
       intentos, saltarás a la siguiente adivinanza para continuar tu progreso pero a cambio se te restará una vida.
       Si te quedas sin vidas, habrás perdido. ¡Cuidado con las tildes!
     </p>
-  `;
+  `);
   $containerGame.appendChild($tutorialSection);
 }
 
@@ -140,3 +131,10 @@ function showNotification(message) {
   $form.appendChild(notification);
   setTimeout(() => notification.remove(), 3000);
 }
+
+// Game Init
+window.addEventListener('load', () => $form.reset());
+renderStatsAndRiddle(); // render the initial state
+$btnTutorial.addEventListener('click', renderTutorialSection);
+$userInput.addEventListener('input', readValue);
+$form.addEventListener('submit', checkAnswer);
