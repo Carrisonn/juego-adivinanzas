@@ -13,12 +13,7 @@ export const riddlesSet1 = [
   { riddle: 'Redonda, redonda, barril sin fondo.', answer: 'anillo' },
   { riddle: 'Tengo alas y pico, pero no soy un ave. A veces repito lo que tú hables.', answer: 'loro' },
   { riddle: 'Tiene patas pero no anda, tiene respaldo y no descansa.', answer: 'silla' },
-  { riddle: 'En casa me llaman tele, en la escuela monitor y en la oficina pantalla. ¿Quién soy?', answer: 'pantalla' },
-  { riddle: 'Tengo cabeza y no soy humano, tengo números y no soy teléfono.', answer: 'reloj' },
-  { riddle: 'Un animal muy elegante que siempre camina con paso galante.', answer: 'caballo' },
-  { riddle: 'Siempre que me necesitas me abres, cuando ya no me necesitas me cierras.', answer: 'paraguas' },
-  { riddle: 'Vuelo sin alas, lloro sin ojos, si quieres que te lo diga, espera un poco.', answer: 'nube' },
-  { riddle: 'Cuatro patas tiene y no puede andar, aunque le pongan herraduras no puede trotar.', answer: 'mesa' }
+  { riddle: 'En casa me llaman tele, en la escuela monitor y en la oficina pantalla. ¿Quién soy?', answer: 'pantalla' }
 ];
 
 export const riddlesSet2 = [
@@ -36,12 +31,7 @@ export const riddlesSet2 = [
   { riddle: 'Sube y baja sin escalera, y te lleva a donde quieras.', answer: 'ascensor' },
   { riddle: 'Te despierto cada día, aunque no tengas alegría. Algunos me odian, otros me apagan.', answer: 'alarma' },
   { riddle: 'Te sigo a todos lados, pero solo aparezco cuando hay luz.', answer: 'sombra' },
-  { riddle: 'Cuando ríes, yo estoy contigo. Cuando lloras, también. Pero si no hay luz, me escondo.', answer: 'reflejo' },
-  { riddle: 'Soy una fruta y también una estación, mi piel es naranja, ¿ya sabes quién soy yo?', answer: 'mandarina' },
-  { riddle: 'Me pones en tu mesa, pero no como. Me das una vela, pero no soy barco.', answer: 'pastel' },
-  { riddle: 'Doy vueltas sin parar, pero siempre en el mismo lugar.', answer: 'rueda' },
-  { riddle: 'Tengo alas y pico, canto por la mañana, y nunca uso abrigo.', answer: 'gallo' },
-  { riddle: 'No soy pez y vivo en el agua, si me tocas, quizás te dé una descarga.', answer: 'anguila' }
+  { riddle: 'Cuando ríes, yo estoy contigo. Cuando lloras, también. Pero si no hay luz, me escondo.', answer: 'reflejo' }
 ];
 
 export const riddlesSet3 = [
@@ -59,7 +49,20 @@ export const riddlesSet3 = [
   { riddle: 'Cuando salgo todos se mojan, cuando me voy todos suspiran.', answer: 'lluvia' },
   { riddle: 'Si me usas bien, te doy luz. Si me tratas mal, me haces chasquidos.', answer: 'fósforo' },
   { riddle: 'De noche trabajo iluminando, de día me apago y descanso.', answer: 'lámpara' },
-  { riddle: 'Cuido el jardín, doy chorros de vida, pero si me pisas, dejo una herida.', answer: 'manguera' },
+  { riddle: 'Cuido el jardín, doy chorros de vida, pero si me pisas, dejo una herida.', answer: 'manguera' }
+];
+
+export const riddlesSet4 = [
+  { riddle: 'Tengo cabeza y no soy humano, tengo números y no soy teléfono.', answer: 'reloj' },
+  { riddle: 'Un animal muy elegante que siempre camina con paso galante.', answer: 'caballo' },
+  { riddle: 'Siempre que me necesitas me abres, cuando ya no me necesitas me cierras.', answer: 'paraguas' },
+  { riddle: 'Vuelo sin alas, lloro sin ojos, si quieres que te lo diga, espera un poco.', answer: 'nube' },
+  { riddle: 'Cuatro patas tiene y no puede andar, aunque le pongan herraduras no puede trotar.', answer: 'mesa' },
+  { riddle: 'Soy una fruta y también una estación, mi piel es naranja, ¿ya sabes quién soy yo?', answer: 'mandarina' },
+  { riddle: 'Me pones en tu mesa, pero no como. Me das una vela, pero no soy barco.', answer: 'pastel' },
+  { riddle: 'Doy vueltas sin parar, pero siempre en el mismo lugar.', answer: 'rueda' },
+  { riddle: 'Tengo alas y pico, canto por la mañana, y nunca uso abrigo.', answer: 'gallo' },
+  { riddle: 'No soy pez y vivo en el agua, si me tocas, quizás te dé una descarga.', answer: 'anguila' },
   { riddle: 'Tiene lomo y no es burro, está en la cocina y no en el campo.', answer: 'sartén' },
   { riddle: 'Tengo cara redonda, y aunque no hablo, te doy la hora exacta.', answer: 'cronómetro' },
   { riddle: 'Si me echas agua, no me mojo; si me miras, te ves tú.', answer: 'espejo de agua' },
