@@ -3,11 +3,10 @@ import { $userLifes, $userScore, $userTries, $riddle, $userInput, $containerGame
 
 
 // States
-const riddleSet = randomRiddleSet()
 let userLives = 5;
-let userScore = 0;
 let userTries = 3;
-let positionRiddle = 0; // determines the position of the riddle object in the current array(array of riddle objects are randomly selected)
+let userScore = 0;
+let positionRiddle = 0; // determines the position of the riddle object in the current array(riddleSets are randomly selected)
 
 
 // Functions
@@ -19,7 +18,7 @@ function randomRiddleSet() {
   return randomRiddleSet
 }
 
-// render the current state in the UI and reset the object and the form
+// render the current state in the UI and reset the userAnswerobj(constants.js) and the form
 function renderStatsAndRiddle() {
   $userLifes.textContent = userLives;
   $userTries.textContent = userTries;
@@ -39,15 +38,22 @@ function checkAnswer(event) {
   event.preventDefault();
 
   const { userAnswer } = userAnswerObj;
-  if (userAnswer === '') return showNotification('El campo no puede estar vacío');
-  if (userAnswer !== riddleSet[positionRiddle].answer) return userIncorrectAnswer();
-  if (userAnswer === riddleSet[positionRiddle].answer) return userCorrectAnswer();
+  const { answer } = riddleSet[positionRiddle];
+  const emptyString = userAnswer === '';
+  const incorrectAnswer = userAnswer !== answer;
+  const correctAnswer = userAnswer === answer;
+
+  if (emptyString) return showNotification('El campo no puede estar vacío');
+  if (incorrectAnswer) return userIncorrectAnswer();
+  if (correctAnswer) return userCorrectAnswer();
 }
 
 // increment the score, check the position of the actual riddle in the array, otherwise update the states and call the render function
 function userCorrectAnswer() {
   userScore += 10;
-  if (positionRiddle + 1 === riddleSet.length) return gameCompleted();
+  const lastRiddle = positionRiddle + 1 === riddleSet.length;
+  if (lastRiddle) return gameCompleted();
+
   userTries = 3;
   positionRiddle++;
   renderStatsAndRiddle();
@@ -55,17 +61,22 @@ function userCorrectAnswer() {
 
 // check if user has lives or tries, otherwise decreases the number of tries and call the render function
 function userIncorrectAnswer() {
-  if (userLives === 0 && userTries === 1) return gameOver();
-  if (userTries === 1) return userHasNoTries();
+  const userHasNoTriesAndLives = userLives === 0 && userTries === 1;
+  const userHasNoTries = userTries === 1;
+  if (userHasNoTriesAndLives) return gameOver();
+  if (userHasNoTries) return userHasNoGuessed();
+
   userTries--;
   showNotification('Respuesta Incorrecta');
   renderStatsAndRiddle();
 }
 
 // update the lives, check if the user is in the last riddle, otherwise update the states and call the render function
-function userHasNoTries() {
+function userHasNoGuessed() {
   userLives--;
-  if (positionRiddle + 1 === riddleSet.length) return gameCompleted();
+  const lastRiddle = positionRiddle + 1 === riddleSet.length;
+  if (lastRiddle) return gameCompleted();
+
   userTries = 3;
   positionRiddle++;
   renderStatsAndRiddle();
@@ -133,8 +144,9 @@ function showNotification(message) {
 }
 
 // Game Init
-window.addEventListener('load', () => $form.reset());
+const riddleSet = randomRiddleSet();
 renderStatsAndRiddle(); // render the initial state
+window.addEventListener('load', () => $form.reset());
 $btnTutorial.addEventListener('click', renderTutorialSection);
 $userInput.addEventListener('input', readValue);
 $form.addEventListener('submit', checkAnswer);
